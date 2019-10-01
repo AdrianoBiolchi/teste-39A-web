@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   max-width: 1024px;
   background: #fff;

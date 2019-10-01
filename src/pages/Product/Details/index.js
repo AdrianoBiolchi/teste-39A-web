@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import { css } from '@emotion/core';
 import api from '../../../services/api';
-import NoImage from '../../../assets/no-image.png';
 import { Container, BoxImg, BoxInfo } from './styles';
+
+
+import NoImage from '../../../assets/no-image.png';
 
 export default function Details({ match }) {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const id = decodeURIComponent(match.params.id);
@@ -13,25 +19,31 @@ export default function Details({ match }) {
 
       // Pega dados do produto específico
       const { data } = response;
-
       setProduct(data);
+      setLoading(false);
     }
 
     loadProduct();
   }, []);
-
+  console.log(product.files);
   return (
+
     <Container>
+   {loading ? (
+        <ScaleLoader
+
+          sizeUnit="px"
+          height={20}
+          width={4}
+          radius={2}
+          color="#333"
+        />
+      ) : (
+        <>
       <div>
         <h5> ID: {product.id} </h5> <h1> {product.name} </h1>
         <BoxImg
-          src={
-            product.files
-              ? product.files.map(file => {
-                  return console.log(file.url);
-                })
-              : NoImage
-          }
+          src={product.files ? product.files.map(file => file.url) : NoImage}
           alt="Image"
         />
       </div>
@@ -64,6 +76,9 @@ export default function Details({ match }) {
           {product.features ? product.features.map(c => c.description) : null}
         </p>
       </BoxInfo>
+      </>
+      )}
     </Container>
+
   );
 }
