@@ -19,6 +19,7 @@ export default function Details({ match }) {
 
     loadProduct();
   }, []);
+
   return (
     <Container>
       <h1> ID Produto: {product.id}</h1>
