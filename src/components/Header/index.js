@@ -11,6 +11,11 @@ export default function Header() {
         <Link to="/">
           <h1>Loticáryo</h1>
         </Link>
+        <Dashboard to="/">
+          <div>
+            <strong>Dashboard</strong>
+          </div>
+        </Dashboard>
         <Dashboard to="/new">
           <div>
             <strong>Incluir Item</strong>

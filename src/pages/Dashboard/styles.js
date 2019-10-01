@@ -72,7 +72,7 @@ export const ButtonDetails = styled(Link)`
 `;
 
 export const ButtonEdit = styled(Link)`
-  background: #f1c40f;
+  background: #3498db;
   color: #fff;
   border: 0;
   border-radius: 4px;
@@ -82,7 +82,7 @@ export const ButtonEdit = styled(Link)`
   align-items: center;
   transition: background 0.5s;
   &:hover {
-    background: ${darken(0.2, '#f39c12')};
+    background: ${darken(0.2, '#2980b9')};
   }
   a {
     text-decoration: none !important;

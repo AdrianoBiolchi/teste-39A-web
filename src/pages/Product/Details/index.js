@@ -19,13 +19,11 @@ export default function Details({ match }) {
 
     loadProduct();
   }, []);
-
   return (
     <Container>
       <h1> ID Produto: {product.id}</h1>
       <h2>Nome: {product.name}</h2>
       <span>Descrição: {product.description} </span>
-      {console.log(product.categories)}
     </Container>
   );
 }
