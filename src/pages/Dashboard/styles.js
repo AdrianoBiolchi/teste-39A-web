@@ -7,6 +7,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   max-width: 1024px;
+  background: #fff;
 `;
 
 export const ProductList = styled.ul`

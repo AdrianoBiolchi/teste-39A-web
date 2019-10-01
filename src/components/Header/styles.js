@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
-  background: #2c3e50;
+  background: #232f3e;
 `;
 
 export const HeaderNav = styled.header`
