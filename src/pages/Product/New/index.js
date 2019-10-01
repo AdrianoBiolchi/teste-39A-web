@@ -4,7 +4,7 @@ import ScaleLoader from 'react-spinners/ScaleLoader';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-// import { Container } from './styles';
+
 import api from '../../../services/api'
 
 function New(props) {
@@ -32,11 +32,11 @@ function New(props) {
    <Jumbotron>
       <Form onSubmit={saveProduct}>
         <Form.Group>
-          <Form.Label>Product Name</Form.Label>
+          <Form.Label>Nome do Produto</Form.Label>
           <Form.Control type="text" name="name" id="name" placeholder="Enter product name" value={product.name} onChange={onChange} />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Product Description</Form.Label>
+          <Form.Label>Desrição</Form.Label>
           <Form.Control as="textarea" name="description" id="description" rows="3" placeholder="Enter product description" value={product.description} onChange={onChange} />
         </Form.Group>
         <Button variant="primary" type="submit">
