@@ -4,7 +4,7 @@ import api from '../../services/api';
 
 import { ProductList, Container, ButtonDetails, ButtonEdit } from './styles';
 
-import NoImage from '../../assets/no-image.jpg';
+import NoImage from '../../assets/no-image.png';
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
