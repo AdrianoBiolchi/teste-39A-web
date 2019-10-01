@@ -8,6 +8,10 @@ export const Container = styled.div`
   padding: 20px;
   max-width: 1024px;
   background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ProductList = styled.ul`
