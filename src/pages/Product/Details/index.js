@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../../services/api';
 
 import { Container, BoxImg, BoxInfo } from './styles';
+import NoImage from '../../../assets/no-image.png';
 
 export default function Details({ match }) {
   const [product, setProduct] = useState([]);
@@ -27,9 +28,18 @@ export default function Details({ match }) {
       <div>
         <h5> ID : {product.id}</h5>
         <h1>{product.name} </h1>
+        {console.log(NoImage)}
         <BoxImg
-          src={product.files ? product.files.map(file => file.url) : null}
-          alt=""
+          src={
+            product.files
+              ? product.files.map(file =>
+                  file.url === null || file.url.length === 0
+                    ? NoImage
+                    : file.url
+                )
+              : null
+          }
+          alt="Image"
         />
       </div>
       <BoxInfo>

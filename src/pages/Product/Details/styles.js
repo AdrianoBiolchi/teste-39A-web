@@ -26,9 +26,16 @@ export const BoxImg = styled.img`
 
 export const BoxInfo = styled.div`
   width: 400px;
-  background: #d9d9d9;
   padding: 30px;
-  color: #333;
+  color: #fff;
+  background: #232f3e;
+  text-align: center;
+
+  blockquote {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-left: 5px solid #eee;
+  }
 
   span {
     font-size: 24px;
