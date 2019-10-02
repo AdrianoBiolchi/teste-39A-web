@@ -1,10 +1,6 @@
 import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
-import ScaleLoader from 'react-spinners/ScaleLoader';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
+import { Container } from './styles';
 import api from '../../../services/api'
 
 function New(props) {
@@ -28,23 +24,21 @@ function New(props) {
   }
 
   return (
-    <div>
-   <Jumbotron>
-      <Form onSubmit={saveProduct}>
-        <Form.Group>
-          <Form.Label>Nome do Produto</Form.Label>
-          <Form.Control type="text" name="name" id="name" placeholder="Enter product name" value={product.name} onChange={onChange} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Desrição</Form.Label>
-          <Form.Control as="textarea" name="description" id="description" rows="3" placeholder="Enter product description" value={product.description} onChange={onChange} />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Save
-        </Button>
-      </Form>
-    </Jumbotron>
-  </div>
+  <Container>
+      <form onSubmit={saveProduct}>
+        <label>
+          <h3>Nome</h3>
+          <input type="text" name="name" id="name" placeholder="Digite o nome do produto" value={product.name} onChange={onChange} />
+        </label>
+        <label>
+         <h3>Descrição</h3>
+          <textarea name="description" id="description" placeholder="Digite a descrição do produto..." value={product.description} onChange={onChange} />
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+
+
+    </Container>
   );
 }
 export default withRouter(New);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MdAddCircleOutline } from 'react-icons/md';
+import { MdAddCircleOutline, MdHome } from 'react-icons/md';
 
 import { Container, HeaderContainer, Nav, HeaderNav, Logo } from './styles';
 
@@ -14,7 +14,7 @@ export default function Header() {
         <HeaderNav>
           <Nav to="/">
             <div>
-              <strong>Dashboard</strong>
+              <strong>Dashboard <MdHome size={16} color="#FFF" /></strong>
             </div>
           </Nav>
           <Nav to="/new">

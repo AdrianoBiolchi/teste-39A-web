@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ScaleLoader from 'react-spinners/ScaleLoader';
-import { css } from '@emotion/core';
 import api from '../../../services/api';
 import { Container, BoxImg, BoxInfo } from './styles';
 
