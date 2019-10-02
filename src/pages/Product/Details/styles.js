@@ -26,7 +26,7 @@ export const BoxImg = styled.img`
 export const BoxInfo = styled.div`
   height: 100%;
   width: 350px;
-  padding: 30px;
+  padding: 20px;
   color: #333;
   h1 {
     font-size: 30px;

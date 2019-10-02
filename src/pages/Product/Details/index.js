@@ -22,9 +22,10 @@ export default function Details({ match }) {
 
     loadProduct();
   }, []);
-  console.log(product.files);
+
   return (
     <Container>
+      {' '}
       {loading ? (
         <ScaleLoader
           sizeUnit="px"
@@ -42,48 +43,59 @@ export default function Details({ match }) {
               }
               alt="Image"
             />
-          </div>
+          </div>{' '}
           <BoxInfo>
-            <h1> {product.name} </h1>
-            <h6> ID: {product.id} </h6>
-            <h3> Descrição: </h3>
+            <h1> {product.name} </h1> <h6> ID: {product.id} </h6>{' '}
+            <h3> Descrição: </h3>{' '}
             <blockquote>
-              <p> {product.description} </p>
+              <p> {product.description} </p>{' '}
             </blockquote>
-
-            <h3> Categoria: </h3>
+            <h3> Categoria: </h3>{' '}
             <p>
-              {product.categories ? product.categories.map(c => c.title) : null}{' '}
-              {product.subcategories
-                ? product.subcategories.map(sb => sb.title)
-                : null}
+              {' '}
+              {product.categories
+                ? product.categories.map(c => c.title)
+                : null}{' '}
             </p>
-            <h3> Aplicação: </h3>
+            <h3> Propriedades </h3>{' '}
             <p>
+              {' '}
+              {product.subcategories
+                ? product.subcategories.map(sb => (
+                    <li key={sb.id}> {sb.title} </li>
+                  ))
+                : null}{' '}
+            </p>
+            <h3> Aplicação: </h3>{' '}
+            <p>
+              {' '}
               {product.applications
                 ? product.applications.map(a => a.description)
-                : null}
-            </p>
+                : null}{' '}
+            </p>{' '}
             <h3>
+              {' '}
               {product.attributes
                 ? product.attributes.map(at => at.title)
                 : null}
               :
-            </h3>
+            </h3>{' '}
             <p>
+              {' '}
               {product.attributes
                 ? product.attributes.map(at => at.value)
-                : null}
-            </p>
-            <h3> Características: </h3>
+                : null}{' '}
+            </p>{' '}
+            <h3> Características: </h3>{' '}
             <p>
+              {' '}
               {product.features
                 ? product.features.map(c => c.description)
-                : null}
-            </p>
-          </BoxInfo>
+                : null}{' '}
+            </p>{' '}
+          </BoxInfo>{' '}
         </>
-      )}
+      )}{' '}
     </Container>
   );
 }
