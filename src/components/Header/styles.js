@@ -4,26 +4,35 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   background: #232f3e;
-`;
-
-export const HeaderNav = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 1020px;
-  padding: 20px;
-  margin: 0 auto;
-
   h1 {
     color: #fff;
   }
-
+`;
+export const HeaderContainer = styled.div`
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px;
+`;
+export const Logo = styled.div`
+  float: left;
+`;
+export const HeaderNav = styled.header`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  h1 {
+    color: #fff;
+  }
   a {
     text-decoration: none;
   }
 `;
 
-export const Dashboard = styled(Link)`
+export const Nav = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -33,7 +42,7 @@ export const Dashboard = styled(Link)`
   }
   div {
     text-align: right;
-    margin-right: 10px;
+    margin-right: 20px;
     strong {
       display: block;
       color: #fff;

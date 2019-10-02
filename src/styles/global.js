@@ -9,7 +9,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body{
-    background: #EAEDED;
+    background: #FFF;
     -webkit-font-smoothing: antialiased;
   }
   body, input, button{
@@ -21,7 +21,5 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
-  a{
-    text-decoration:none;
-  }
+
 `;

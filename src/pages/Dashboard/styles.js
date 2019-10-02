@@ -19,12 +19,15 @@ export const ProductList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
+
   li {
     display: flex;
     flex-direction: column;
     background: #fff;
     border-radius: 4px;
     padding: 20px;
+    border: 1px solid #000;
+    border-radius: 15px;
     img {
       align-self: center;
       padding: 20px;
@@ -59,6 +62,8 @@ export const ButtonDetails = styled(Link)`
   transition: background 0.5s;
   &:hover {
     background: ${darken(0.2, '#27ae60')};
+    text-decoration: none;
+    color: #fff;
   }
   div {
     display: flex;
@@ -88,6 +93,8 @@ export const ButtonEdit = styled(Link)`
   transition: background 0.5s;
   &:hover {
     background: ${darken(0.2, '#2980b9')};
+    text-decoration: none;
+    color: #fff;
   }
   a {
     text-decoration: none !important;

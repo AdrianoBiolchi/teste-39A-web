@@ -2,27 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdAddCircleOutline } from 'react-icons/md';
 
-import { Container, Dashboard, HeaderNav } from './styles';
+import { Container, HeaderContainer, Nav, HeaderNav, Logo } from './styles';
 
 export default function Header() {
   return (
     <Container>
-      <HeaderNav>
-        <Link to="/">
+      <HeaderContainer>
+        <Logo to="/">
           <h1>Loticáryo</h1>
-        </Link>
-        <Dashboard to="/">
-          <div>
-            <strong>Dashboard</strong>
-          </div>
-        </Dashboard>
-        <Dashboard to="/new">
-          <div>
-            <strong>Incluir Item</strong>
-          </div>
-          <MdAddCircleOutline size={16} color="#FFF" />
-        </Dashboard>
-      </HeaderNav>
+        </Logo>
+        <HeaderNav>
+          <Nav to="/">
+            <div>
+              <strong>Dashboard</strong>
+            </div>
+          </Nav>
+          <Nav to="/new">
+            <div>
+              <strong>
+                Incluir Item <MdAddCircleOutline size={16} color="#FFF" />
+              </strong>
+            </div>
+          </Nav>
+        </HeaderNav>
+      </HeaderContainer>
     </Container>
   );
 }
