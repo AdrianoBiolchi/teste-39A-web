@@ -10,6 +10,7 @@ function Update(props) {
     description: '',
     categories: [],
     subcategories: [],
+    files:[]
   });
   const [subcategory, setSubCategory] = useState([]);
 
@@ -17,6 +18,7 @@ function Update(props) {
     const fetchData = async () => {
       const result = await api.get(`products/${props.match.params.id}`);
       setProduct(result.data);
+
     };
     fetchData();
 
@@ -31,7 +33,6 @@ function Update(props) {
 
   const updateProduct = e => {
     e.preventDefault();
-    console.log(e._targetInst);
     const data = {
       name: product.name,
       description: product.description,
@@ -40,27 +41,42 @@ function Update(props) {
       attributes: [1],
       features: [1],
       applications: [1],
+      files:[product.files],
     };
 
-    // api
-    //   .put(`products/${props.match.params.id}`, data)
-    //   .then(result => {
-    //     props.history.push('/details/' + result.data.id);
-    //   })
-    //   .catch(error => error);
-    console.log(data);
+
+    api
+    .post(`products/${props.match.params.id}/files`, data.files)
+    .then(result => console.log(result))
+    .catch(error => error);
+
+     //api
+      // .put(`products/${props.match.params.id}`, data)
+       //.then(result => {
+       //  props.history.push('/details/' + result.data.id);
+      // })
+      // .catch(error => error);
+       console.log(data)
+
   };
+
   const onChange = e => {
     e.persist();
+
+
+    console.log(e.target.value)
     setProduct({
       ...product,
       [e.target.name]: e.target.value,
     });
   };
 
+
+  console.log(product)
+
   return (
     <Container>
-      <form onSubmit={updateProduct}>
+      <form onSubmit={updateProduct} encType="multipart/form-data">
         <label>
           <h3> Nome </h3>
           <input
@@ -114,6 +130,9 @@ function Update(props) {
             })}
           </select> */}
         </label>
+
+        <input type="file" id="files" name="files" />
+
         <button type="submit"> Enviar </button>
       </form>
     </Container>
