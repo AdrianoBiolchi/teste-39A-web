@@ -15,7 +15,7 @@ export default function Dashboard() {
     display: block;
     margin: 0 auto;
     border-color: red;
-`;
+  `;
 
   useEffect(() => {
     async function loadProducts() {
@@ -25,13 +25,10 @@ export default function Dashboard() {
       const { data } = response.data;
       setProducts(data);
       setLoading(false);
-
     }
 
     loadProducts();
   }, []);
-
-
 
   return (
     <Container>

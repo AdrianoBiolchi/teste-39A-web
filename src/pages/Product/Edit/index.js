@@ -10,7 +10,7 @@ function Update(props) {
     description: '',
     categories: [],
     subcategories: [],
-    files:[]
+    files: [],
   });
   const [subcategory, setSubCategory] = useState([]);
 
@@ -18,7 +18,6 @@ function Update(props) {
     const fetchData = async () => {
       const result = await api.get(`products/${props.match.params.id}`);
       setProduct(result.data);
-
     };
     fetchData();
 
@@ -33,6 +32,7 @@ function Update(props) {
 
   const updateProduct = e => {
     e.preventDefault();
+
     const data = {
       name: product.name,
       description: product.description,
@@ -41,38 +41,49 @@ function Update(props) {
       attributes: [1],
       features: [1],
       applications: [1],
-      files:[product.files],
+      files: product.image,
     };
 
+    const formData = new FormData();
+    formData.append('image', product.image);
+    console.log(data.files);
+    console.log(product.image);
+    // const config = {
+    //   headers: {
+    //     'content-type': 'multipart/form-data',
+    //   },
+    // };
 
-    api
-    .post(`products/${props.match.params.id}/files`, data.files)
-    .then(result => console.log(result))
-    .catch(error => error);
+    // api
+    //   .post(
+    //     `/products/${props.match.params.id}/files`,
+    //     {
+    //       data: { image: product.image },
+    //     },
+    //     config
+    //   )
+    //   .then(result => {
+    //     alert('The file is successfully uploaded');
+    //     props.history.push('/details/' + result.data.id);
+    //   })
+    //   .catch(error => error);
 
-     //api
-      // .put(`products/${props.match.params.id}`, data)
-       //.then(result => {
-       //  props.history.push('/details/' + result.data.id);
-      // })
-      // .catch(error => error);
-       console.log(data)
-
+    // api
+    //   .put(`products/${props.match.params.id}`, data)
+    //   .then(result => {
+    //     props.history.push('/details/' + result.data.id);
+    //   })
+    //   .catch(error => error);
+    // console.log(data);
   };
 
   const onChange = e => {
     e.persist();
-
-
-    console.log(e.target.value)
     setProduct({
       ...product,
       [e.target.name]: e.target.value,
     });
   };
-
-
-  console.log(product)
 
   return (
     <Container>
@@ -104,7 +115,7 @@ function Update(props) {
           <div className="checkbox">
             {subcategory.map((sb, index) => {
               return (
-                <label>
+                <label key={index}>
                   <input
                     type="checkbox"
                     value={sb.id}
@@ -130,8 +141,9 @@ function Update(props) {
             })}
           </select> */}
         </label>
-
-        <input type="file" id="files" name="files" />
+        <label>
+          <input type="file" id="image" name="image" onChange={onChange} />
+        </label>
 
         <button type="submit"> Enviar </button>
       </form>
