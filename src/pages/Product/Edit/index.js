@@ -72,13 +72,6 @@ function Update(props) {
       image: image,
     };
 
-    api
-      .put(`products/${props.match.params.id}`, data)
-      .then(result => {
-        props.history.push('/details/' + result.data.id);
-      })
-      .catch(error => error);
-
     const formData = new FormData();
     formData.append('image', data.image);
     api
@@ -89,6 +82,13 @@ function Update(props) {
       })
       .then(result => {
         console.log(result);
+      })
+      .catch(error => error);
+
+    api
+      .put(`products/${props.match.params.id}`, data)
+      .then(result => {
+        props.history.push('/');
       })
       .catch(error => error);
   };

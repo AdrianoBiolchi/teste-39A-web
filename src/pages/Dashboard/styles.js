@@ -25,13 +25,14 @@ export const ProductList = styled.ul`
     flex-direction: column;
     background: #fff;
     border-radius: 4px;
+    width: 300px;
     padding: 20px;
     border: 1px solid #000;
     border-radius: 15px;
     img {
       align-self: center;
       padding: 20px;
-      max-width: 250px;
+      height: 250px;
     }
     > strong {
       font-size: 16px;
@@ -40,12 +41,18 @@ export const ProductList = styled.ul`
       color: #333;
       margin-top: 5px;
       text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     > span {
       font-size: 12px;
       text-align: center;
       color: #444;
       margin: 5px 0 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 `;

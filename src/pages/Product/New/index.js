@@ -11,8 +11,9 @@ function New(props) {
     setLoading(true);
     e.preventDefault();
     const data = { name: product.name, description: product.description };
+
     api
-      .post('/products ', data)
+      .post('products ', data)
       .then(result => {
         setLoading(false);
         props.history.push('/details/' + result.data.id);

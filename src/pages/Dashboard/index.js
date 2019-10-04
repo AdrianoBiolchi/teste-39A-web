@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdVisibility, MdModeEdit } from 'react-icons/md';
 import ScaleLoader from 'react-spinners/ScaleLoader';
+
 import { css } from '@emotion/core';
 import api from '../../services/api';
 
@@ -24,12 +25,12 @@ export default function Dashboard() {
       // Pega todos os produtos da api
       const { data } = response.data;
       setProducts(data);
+
       setLoading(false);
     }
 
     loadProducts();
-  }, []);
-
+  }, [products]);
   return (
     <Container>
       {loading ? (
@@ -45,13 +46,15 @@ export default function Dashboard() {
         <ProductList>
           {products.map(product => (
             <li key={product.id}>
-              {product.files.map(img =>
-                img.url ? (
-                  <img src={img.url} alt={img.name} key={img.key} />
-                ) : (
-                  <img src={NoImage} />
-                )
-              )}
+              {
+                product.files.map(img =>
+                  img.url ? (
+                    <img src={img.url} alt={img.name} key={img.key} />
+                  ) : (
+                    <img src={NoImage} />
+                  )
+                )[0]
+              }
               <strong>{product.name}</strong>
               <span>{product.description}</span>
               <ButtonDetails to={`/details/${encodeURIComponent(product.id)}`}>
