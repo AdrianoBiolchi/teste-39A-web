@@ -13,7 +13,7 @@ export const Container = styled.div`
     position: relative;
     z-index: 1;
     background: #ffffff;
-    max-width: 480px;
+    max-width: 680px;
     margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
@@ -78,20 +78,6 @@ export const Container = styled.div`
         box-sizing: border-box;
         font-size: 14px;
       }
-      button {
-        font-family: 'Roboto', sans-serif;
-        text-transform: uppercase;
-        outline: 0;
-        background: #000;
-        width: 100%;
-        border: 0;
-        padding: 15px;
-        color: #ffffff;
-        font-size: 14px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
-        cursor: pointer;
-      }
     }
     button {
       font-family: 'Roboto', sans-serif;
@@ -103,9 +89,16 @@ export const Container = styled.div`
       padding: 15px;
       color: #ffffff;
       font-size: 14px;
-      -webkit-transition: all 0.3 ease;
-      transition: all 0.3 ease;
+      transition: 0.5s;
       cursor: pointer;
+
+      :hover {
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+        -webkit-transition: all 1.3 ease;
+        transition: all 0.3 ease;
+      }
     }
   }
 `;

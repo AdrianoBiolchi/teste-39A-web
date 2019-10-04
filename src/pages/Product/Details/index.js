@@ -54,13 +54,17 @@ export default function Details({ match }) {
             </blockquote>
             <h3> Categoria: </h3>
             <p>
-              {product.categories ? product.categories.map(c => c.title) : null}
+              {product.categories
+                ? product.categories.map((c, index) => (
+                    <li key={index}>{c.title}</li>
+                  ))
+                : null}
             </p>
             <h3> Propriedades </h3>
             <p>
               {product.subcategories
-                ? product.subcategories.map(sb => (
-                    <li key={sb.id}> {sb.title} </li>
+                ? product.subcategories.map((sb, index) => (
+                    <li key={index}> {sb.title} </li>
                   ))
                 : null}
             </p>
