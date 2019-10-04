@@ -81,8 +81,6 @@ function Update(props) {
 
     const formData = new FormData();
     formData.append('image', data.image);
-    console.log(image);
-
     api
       .post(`/products/${props.match.params.id}/files`, formData, {
         headers: {
